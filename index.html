@@ -47,15 +47,32 @@
         </div>
       </nav>
 
-      <div class="jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">All Times</a>
-        </p>
+      <div class="container my-4">
+        <div class="jumbotron">
+            <h1 class="display-4">Current Time: <span id="time"></span></h1>
+            <p class="lead">This is a simple website that shows current time</p>
+            <hr class="my-4">
+            <p>See all the world times here</p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="#" role="button">All Times</a>
+            </p>
+          </div>
       </div>
+
+      <script>
+        setInterval(() => {
+            a = new Date();
+            let sec=a.getSeconds();
+            let min=a.getMinutes();
+            let hr=a.getHours();
+            if(a.getSeconds()<10){sec='0'+a.getSeconds();}
+            if(a.getMinutes()<10){min='0'+a.getMinutes();}
+            if(a.getHours()<10){hr='0'+a.getHours();}
+            document.getElementById('time').innerHTML = hr+':'+min+':'+sec+' On '+a.toLocaleDateString();
+            // console.log("working");
+            
+        }, 1000);
+        </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
